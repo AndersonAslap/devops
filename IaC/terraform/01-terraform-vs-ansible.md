@@ -42,6 +42,8 @@ terraform destroy
 terraform apply -var-file=<pathfile>
 
 terraform apply -var="conteudo_string=Teste de variável com passagem por comando" -var='lista_nomes=["maquina01", "maquina02"]'
+
+terraform console
 ```
 
 ordem de prioridade de passagem de variável
@@ -79,3 +81,8 @@ você pode utilizar um count para criar uma estrutura de repetição
 `for_each`
 
 para criar os seus recursos e pode utilizar também o for it para criar uma estrutura também de repetição, só que utilizando valores de um set ou de um map.
+
+---
+Funções
+https://developer.hashicorp.com/terraform/language/functions
+
