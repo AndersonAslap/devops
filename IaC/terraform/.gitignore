@@ -1,0 +1,101 @@
+# ==========================================
+# Terraform
+# ==========================================
+
+# Diretórios locais do Terraform
+**/.terraform/*
+.terraform/
+
+# Arquivos de estado
+*.tfstate
+*.tfstate.*
+
+# Arquivos de crash
+crash.log
+crash.*.log
+
+# Arquivos de variáveis sensíveis
+*.tfvars
+*.tfvars.json
+
+# Overrides
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Lock file (descomente se não quiser versionar)
+# .terraform.lock.hcl
+
+# Planos gerados
+*.tfplan
+*.plan
+
+# ==========================================
+# Variáveis de Ambiente
+# ==========================================
+
+.env
+.env.*
+*.env
+
+# ==========================================
+# IDEs
+# ==========================================
+
+.vscode/
+.idea/
+
+# JetBrains
+*.iml
+
+# ==========================================
+# Sistema Operacional
+# ==========================================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==========================================
+# Logs
+# ==========================================
+
+*.log
+logs/
+
+# ==========================================
+# Arquivos Temporários
+# ==========================================
+
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+
+# ==========================================
+# Arquivos de Teste e Debug
+# ==========================================
+
+terraform.tfvars
+terraform.tfvars.json
+
+# ==========================================
+# Credenciais
+# ==========================================
+
+credentials.json
+secrets.json
+*.pem
+*.key
+*.pfx
+*.crt
+
+# ==========================================
+# Hands-on locais
+# ==========================================
+
+sandbox/
+temp/
+output/
