@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" width="900" height="300" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#162036"/></linearGradient>
+<radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(0 0) scale(520 360)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#38bdf8" stop-opacity="0.28"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></radialGradient>
+<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" fill="#ffffff" fill-opacity="0.06"/></pattern>
+<filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.35"/></filter>
+<marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1.5 L8.5 5 L1 8.5 z" fill="#94a3b8"/></marker>
+</defs>
+<rect width="900" height="300" rx="22" fill="url(#bg)"/>
+<rect width="900" height="300" rx="22" fill="url(#dots)"/>
+<rect width="900" height="300" rx="22" fill="url(#glow)"/>
+<text x="450" y="125" text-anchor="middle" font-size="60" font-weight="800" fill="#ffffff" letter-spacing="-1">DevOps<tspan fill="#38bdf8" dx="14">Lab</tspan></text>
+<text x="450" y="163" text-anchor="middle" font-size="16" fill="#9fb0c8">Meu caderno de estudos: containers, IaC, cloud, automação e observabilidade</text>
+<rect x="51.8" y="205" width="73.2" height="34" rx="17" fill="#2496ED" fill-opacity="0.16" stroke="#2496ED" stroke-opacity="0.9"/>
+<text x="88.4" y="227" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">Docker</text>
+<rect x="135.0" y="205" width="102.0" height="34" rx="17" fill="#326CE5" fill-opacity="0.16" stroke="#326CE5" stroke-opacity="0.9"/>
+<text x="186.0" y="227" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">Kubernetes</text>
+<rect x="247.0" y="205" width="94.8" height="34" rx="17" fill="#7B42BC" fill-opacity="0.16" stroke="#7B42BC" stroke-opacity="0.9"/>
+<text x="294.4" y="227" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">Terraform</text>
+<rect x="351.8" y="205" width="80.4" height="34" rx="17" fill="#EE0000" fill-opacity="0.16" stroke="#EE0000" stroke-opacity="0.9"/>
+<text x="392.0" y="227" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">Ansible</text>
+<rect x="442.2" y="205" width="51.6" height="34" rx="17" fill="#FF9900" fill-opacity="0.16" stroke="#FF9900" stroke-opacity="0.9"/>
+<text x="468.0" y="227" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">AWS</text>
+<rect x="503.8" y="205" width="66.0" height="34" rx="17" fill="#F59E0B" fill-opacity="0.16" stroke="#F59E0B" stroke-opacity="0.9"/>
+<text x="536.8" y="227" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">CI/CD</text>
+<rect x="579.8" y="205" width="138.0" height="34" rx="17" fill="#E6522C" fill-opacity="0.16" stroke="#E6522C" stroke-opacity="0.9"/>
+<text x="648.8" y="227" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">Observabilidade</text>
+<rect x="727.8" y="205" width="44.4" height="34" rx="17" fill="#10B981" fill-opacity="0.16" stroke="#10B981" stroke-opacity="0.9"/>
+<text x="750.0" y="227" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">IA</text>
+<rect x="782.2" y="205" width="66.0" height="34" rx="17" fill="#94a3b8" fill-opacity="0.16" stroke="#94a3b8" stroke-opacity="0.9"/>
+<text x="815.2" y="227" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">Linux</text>
+</svg>

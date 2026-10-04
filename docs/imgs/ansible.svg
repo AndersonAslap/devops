@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 380" width="900" height="380" font-family="Inter, 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#162036"/></linearGradient>
+<radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(0 0) scale(520 360)" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#EE0000" stop-opacity="0.28"/><stop offset="1" stop-color="#EE0000" stop-opacity="0"/></radialGradient>
+<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1.5" cy="1.5" r="1" fill="#ffffff" fill-opacity="0.06"/></pattern>
+<filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000" flood-opacity="0.35"/></filter>
+<marker id="ah" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M1 1.5 L8.5 5 L1 8.5 z" fill="#94a3b8"/></marker>
+</defs>
+<rect width="900" height="380" rx="22" fill="url(#bg)"/>
+<rect width="900" height="380" rx="22" fill="url(#dots)"/>
+<rect width="900" height="380" rx="22" fill="url(#glow)"/>
+<rect x="40" y="30" width="5" height="34" rx="2.5" fill="#EE0000"/>
+<text x="58" y="44" font-size="22" font-weight="700" fill="#ffffff">Arquitetura do Ansible</text>
+<text x="58" y="62" font-size="12.5" fill="#9fb0c8">Automação agentless via SSH</text>
+<rect x="40" y="90" width="320" height="250" rx="16" fill="#ffffff" fill-opacity="0.025" stroke="#f87171" stroke-opacity="0.45" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="56" y="114" font-size="11.5" font-weight="700" letter-spacing="1.2" fill="#f87171">NÓ DE CONTROLE</text>
+<rect x="65" y="125" width="270" height="56" rx="12" fill="#EE0000" fill-opacity="0.16" stroke="#EE0000" stroke-opacity="0.85" stroke-width="1.3" filter="url(#sh)"/>
+<text x="200.0" y="150.0" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">Playbooks (YAML)</text>
+<text x="200.0" y="167.0" text-anchor="middle" font-size="10.5" fill="#9fb0c8">tarefas declarativas</text>
+<rect x="65" y="198" width="270" height="56" rx="12" fill="#EE0000" fill-opacity="0.16" stroke="#EE0000" stroke-opacity="0.85" stroke-width="1.3" filter="url(#sh)"/>
+<text x="200.0" y="223.0" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">Inventário</text>
+<text x="200.0" y="240.0" text-anchor="middle" font-size="10.5" fill="#9fb0c8">hosts e grupos</text>
+<rect x="65" y="271" width="270" height="52" rx="12" fill="#EE0000" fill-opacity="0.16" stroke="#EE0000" stroke-opacity="0.85" stroke-width="1.3" filter="url(#sh)"/>
+<text x="200.0" y="302.0" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">Roles · Módulos · Collections</text>
+<rect x="540" y="90" width="320" height="250" rx="16" fill="#ffffff" fill-opacity="0.025" stroke="#f87171" stroke-opacity="0.45" stroke-width="1.2" stroke-dasharray="6 5"/>
+<text x="556" y="114" font-size="11.5" font-weight="700" letter-spacing="1.2" fill="#f87171">NÓS GERENCIADOS</text>
+<rect x="565" y="125" width="270" height="56" rx="12" fill="#f87171" fill-opacity="0.16" stroke="#f87171" stroke-opacity="0.85" stroke-width="1.3" filter="url(#sh)"/>
+<text x="700.0" y="150.0" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">web-01</text>
+<text x="700.0" y="167.0" text-anchor="middle" font-size="10.5" fill="#9fb0c8">nginx</text>
+<rect x="565" y="198" width="270" height="56" rx="12" fill="#f87171" fill-opacity="0.16" stroke="#f87171" stroke-opacity="0.85" stroke-width="1.3" filter="url(#sh)"/>
+<text x="700.0" y="223.0" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">app-01</text>
+<text x="700.0" y="240.0" text-anchor="middle" font-size="10.5" fill="#9fb0c8">aplicação</text>
+<rect x="565" y="271" width="270" height="52" rx="12" fill="#f87171" fill-opacity="0.16" stroke="#f87171" stroke-opacity="0.85" stroke-width="1.3" filter="url(#sh)"/>
+<text x="700.0" y="294.0" text-anchor="middle" font-size="13" font-weight="600" fill="#f1f5f9">db-01</text>
+<text x="700.0" y="311.0" text-anchor="middle" font-size="10.5" fill="#9fb0c8">banco de dados</text>
+<line x1="360" y1="215" x2="540" y2="215" stroke="#94a3b8" stroke-width="1.6" marker-end="url(#ah)"/>
+<text x="450.0" y="203.0" text-anchor="middle" font-size="10.5" fill="#cbd5e1">SSH · sem agente</text>
+</svg>
