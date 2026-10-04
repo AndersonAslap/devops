@@ -1,8 +1,29 @@
-Abaixo está um material em formato **Markdown pronto para copiar e colar**, com uma abordagem de especialista, mas explicada de forma simples. Mantive o conteúdo enxuto, porém cobrindo os conceitos fundamentais e a relação entre eles.
-
 # Kubernetes — Objetos e Comunicação
 
-## 1. API Version
+> Conceitos fundamentais: objetos, Pod, ReplicaSet, Deployment, Labels/Selectors, Service e Endpoints.
+> Manifestos de exemplo: as subpastas `pod/`, `replicaset/`, `deployment/` e `service/` (arquivos `.yml`). Comandos: [`../comandos.md`](../comandos.md).
+
+## Índice
+
+1. [API Version](#1-api-version)
+2. [Objetos](#2-objetos)
+3. [Interação com objetos](#3-interação-com-objetos)
+4. [Pod](#4-pod)
+5. [ReplicaSet](#5-replicaset)
+6. [Labels](#6-labels)
+7. [Selectors](#7-selectors)
+8. [Deployment](#8-deployment)
+9. [Services](#9-services)
+10. [Service + Selector](#10-service--selector)
+11. [Endpoint](#11-endpoint)
+12. [Fluxo completo](#12-fluxo-completo)
+13. [Exemplo completo](#13-exemplo-completo)
+14. [Comandos essenciais](#14-comandos-essenciais)
+15. [Resumo](#15-resumo)
+
+---
+
+# 1. API Version
 
 Todo objeto Kubernetes possui um campo `apiVersion`.
 
@@ -418,6 +439,21 @@ procure app=nginx
 
 Essa relação é extremamente importante no Kubernetes.
 
+```text
+LABEL     → "Eu sou nginx"
+SELECTOR  → "Procure quem é nginx"
+```
+
+O mesmo mecanismo é usado em todo lugar:
+
+| Quem seleciona      | O que seleciona                           |
+| ------------------- | ----------------------------------------- |
+| ReplicaSet          | Pods (`selector` ↔ `template.metadata.labels`) |
+| Deployment          | Pods/ReplicaSets (mesma regra do ReplicaSet) |
+| Service             | Pods (`spec.selector` ↔ labels do Pod)    |
+
+> Se o `selector` não bater com as labels do `template`, o Deployment/ReplicaSet é rejeitado. Se o `selector` do Service não bater com nenhum Pod, o Service fica **sem endpoints**.
+
 ---
 
 # 8. Deployment
@@ -559,6 +595,17 @@ O Service fornece:
 * Descoberta de serviço
 * Balanceamento entre Pods
 
+### Tipos de Service
+
+| Tipo           | Acesso                                         |
+| -------------- | ---------------------------------------------- |
+| `ClusterIP`    | Interno ao cluster (padrão)                    |
+| `NodePort`     | Porta aberta em todos os Nodes (30000–32767)   |
+| `LoadBalancer` | Balanceador externo (cloud)                    |
+| `ExternalName` | Alias DNS para um host externo                 |
+
+> Dentro do cluster, o Service é acessível pelo nome DNS: `<service>.<namespace>.svc.cluster.local` (ou apenas `<service>` no mesmo namespace).
+
 ---
 
 # 10. Service + Selector
@@ -634,7 +681,7 @@ Podemos consultar:
 kubectl get endpoints
 ```
 
-Em Kubernetes modernos, o mecanismo recomendado para representar esses destinos é o **EndpointSlice**:
+> O recurso `Endpoints` está **deprecado** (a partir do Kubernetes 1.33). Em Kubernetes modernos, o mecanismo recomendado para representar esses destinos é o **EndpointSlice**:
 
 ```bash
 kubectl get endpointslices
@@ -686,109 +733,7 @@ Uma aplicação típica pode ser representada assim:
 
 ---
 
-# 13. Relação entre Labels e Selectors
-
-Essa é uma das relações mais importantes do Kubernetes.
-
-```text
-Pod
-
-labels:
-  app: nginx
-```
-
-↓
-
-```text
-Service
-
-selector:
-  app: nginx
-```
-
-↓
-
-```text
-Service encontra o Pod
-```
-
-O mesmo conceito é utilizado pelo ReplicaSet/Deployment:
-
-```text
-ReplicaSet
-
-selector:
-  app: nginx
-```
-
-e:
-
-```text
-Pod Template
-
-labels:
-  app: nginx
-```
-
-### Regra mental
-
-```text
-LABEL
-"Eu sou nginx"
-
-SELECTOR
-"Procure quem é nginx"
-```
-
----
-
-# 14. Deployment + ReplicaSet + Pod
-
-```text
-Deployment
-    │
-    │ cria
-    ↓
-ReplicaSet
-    │
-    │ gerencia
-    ↓
-Pods
-```
-
-Responsabilidades:
-
-| Recurso    | Responsabilidade                |
-| ---------- | ------------------------------- |
-| Deployment | Gerenciar versões e ReplicaSets |
-| ReplicaSet | Garantir quantidade de Pods     |
-| Pod        | Executar containers             |
-
----
-
-# 15. Service + Endpoint
-
-```text
-Service
-   │
-   │ selector
-   ↓
-Labels
-   │
-   ↓
-Pods
-   │
-   ↓
-EndpointSlice
-```
-
-O Service **não executa containers**.
-
-Ele fornece uma forma estável de acessar os Pods.
-
----
-
-# 16. Exemplo Completo
+# 13. Exemplo Completo
 
 ## Deployment
 
@@ -879,7 +824,7 @@ Pod C:8080
 
 ---
 
-# 17. Comandos Essenciais
+# 14. Comandos Essenciais
 
 ```bash
 # Pods
@@ -917,33 +862,7 @@ kubectl describe <resource> <name>
 
 ---
 
-# 18. Mapa Mental
-
-```text
-                    Kubernetes
-                        │
-             ┌──────────┴──────────┐
-             ↓                     ↓
-          Objetos                API
-             │                apiVersion
-             │
-      ┌──────┴───────┐
-      ↓              ↓
- Deployment        Service
-      │                │
-      ↓                ↓
- ReplicaSet        Selector
-      │                │
-      ↓                ↓
-    Pods ←──────── Labels
-      │
-      ↓
-EndpointSlice
-```
-
----
-
-# 19. Resumo
+# 15. Resumo
 
 ```text
 apiVersion
@@ -1002,5 +921,3 @@ EndpointSlice
 ```
 
 > **Ideia central:** Kubernetes não depende de você controlar diretamente cada Pod. Você declara o estado desejado, e os controladores utilizam objetos, labels e selectors para manter o cluster nesse estado.
-
-Se quiser, posso também transformar esse conteúdo em uma **apostila de Kubernetes do nível básico → intermediário → avançado**, mantendo exatamente esse estilo didático.
